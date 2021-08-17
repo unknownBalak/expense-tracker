@@ -1,0 +1,12 @@
+@mixin flex($disp, $fc, $ai) {
+  display: $disp;
+  flex-direction: $fc;
+  align-items: $ai;
+}
+.root {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffff;
+  overflow: hidden;
+  @include flex(flex, column, center);
+}

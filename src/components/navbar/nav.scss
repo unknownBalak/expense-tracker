@@ -1,0 +1,61 @@
+$width: 100%;
+
+@mixin flex($disp, $fc, $ai, $jc) {
+  display: $disp;
+  flex-direction: $fc;
+  justify-content: $jc;
+  align-items: $ai;
+}
+.nav {
+  box-shadow: inset -2px -2px 0.2px gray, inset 2px 2px 4px gray;
+  height: 4em;
+  width: $width;
+  @include flex(flex, row, center, space-between);
+
+  .left {
+    @include flex(flex, row, center, space-evenly);
+    width: $width;
+
+    .navbar-title {
+      font-size: 1.6em;
+      letter-spacing: 0.1px;
+      padding: 5px;
+      color: black;
+      z-index: 10;
+      width: 100%;
+      overflow: hidden;
+      @include flex(flex, row, center, center);
+      div {
+        background-color: rgb(255, 255, 2);
+        padding: 5px;
+        cursor: pointer;
+        border: 1px solid;
+        position: relative;
+
+        span:nth-child(1),
+        span:nth-child(9) {
+          text-transform: uppercase;
+        }
+      }
+      div::before {
+        content: "";
+        z-index: -2;
+        position: absolute;
+        left: -200px;
+        top: 50%;
+        width: $width;
+        border: 2px solid red;
+      }
+    }
+    .navbar-content {
+      width: 100%;
+      @include flex(flex, row, center, space-evenly);
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+  .right {
+    width: $width;
+  }
+}

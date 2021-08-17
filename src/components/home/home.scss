@@ -1,0 +1,28 @@
+$width: 100%;
+// @import url(.../app.scss);
+@mixin flex($disp, $fc, $ai, $jc) {
+  display: $disp;
+  flex-direction: $fc;
+  justify-content: $jc;
+  align-items: $ai;
+}
+.home {
+  flex-grow: 1;
+  background-color: beige;
+  width: $width;
+  @include flex(flex, column, center, space-between);
+
+  .body {
+    flex-grow: 1;
+    // background-color: beige;
+    width: $width;
+    border: 2px solid red;
+    @include flex(flex, row, center, space-between);
+  }
+  .resizable-bar {
+    height: 100%;
+    width: 20px;
+    cursor: col-resize;
+    background-color: #b2bec385;
+  }
+}
